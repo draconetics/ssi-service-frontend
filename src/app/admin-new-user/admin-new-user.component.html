@@ -1,0 +1,24 @@
+<p>
+admin-new-user works!
+</p>
+<div class="example-container">
+
+  <mat-form-field>
+    <input #firstName matInput placeholder="First Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input #lastName matInput placeholder="Last Name">
+  </mat-form-field>
+  <mat-form-field>
+  <label >Upload file</label>
+  <input type="file" #singleFile />
+  <br>
+  </mat-form-field>
+  <!--<input type="file" name="pic" accept="image/*">
+-->
+  <p>
+  <mat-button-toggle (click)="add(firstName.value, lastName.value,singleFile.value); firstName.value = ''; lastName.value = ''"> SAVE USER</mat-button-toggle>
+  <mat-button-toggle> CANCEL</mat-button-toggle>
+  </p>
+</div>

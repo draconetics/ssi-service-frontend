@@ -1,0 +1,37 @@
+<p> home works perfectly</p>
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px">
+
+  <mat-card *ngIf="item" fxFlex>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>
+        <h3>{{item.name | uppercase}}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image data-src="data:image/png;base64,{{item.image}}" alt={{item.name}}>
+    <mat-card-content>
+      <p>{{item.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="employee" fxFlex>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>
+        <h3>{{employee.name | uppercase}}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image  data-src="data:image/png;base64,{{employee.image}}" alt={{employee.name}}>
+    <mat-card-content>
+      <p>{{employee.jobDescription}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div fxFlex="40" *ngIf="item">
+    <mat-card>
+      <mat-card-title-group>
+        <mat-card-title>
+          <h3>{{item.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-title-group>
+      <img matCardImage data-src="data:image/png;base64,{{item.image}}" alt={{item.name}}>
+      <mat-card-content>
+        <p>{{item.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-button [routerLink]="['/itemdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+        <button mat-button (click)="goBack()">BACK</button>
+        <button mat-button (click)="onAction($event)">LIKE</button>
+        <button mat-button (click)="onAction($event)">SHARE</button>
+        <span class="flex-spacer"></span>
+        <button mat-button [routerLink]="['/itemdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div fxFlex="40" *ngIf="item && item.comments">
+    <h2>Comments</h2>
+    <mat-list dense>
+      <mat-list-item *ngFor="let comment of item.comments">
+        <p matLine>{{comment.comment}}</p>
+        <p matLine>{{comment.rating}} Stars</p>
+        <p matLine><cite>-- {{comment.author}} {{comment.date | date}}</cite></p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
