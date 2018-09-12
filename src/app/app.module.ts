@@ -50,10 +50,9 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {baseURL} from './shared/baseurl';
-import { AdminHeaderComponent } from './admin-header/admin-header.component';
-import { AdminUsersTableComponent } from './admin-users-table/admin-users-table.component';
-import { AdminUsersTableNormalComponent } from './admin-users-table-normal/admin-users-table-normal.component';
-import { AdminNewUserComponent } from './admin-new-user/admin-new-user.component';
+import { UsersComponent } from './admin/users/users.component';
+import { UserComponent } from './admin/user/user.component';
+
 
 
 @NgModule({
@@ -67,10 +66,8 @@ import { AdminNewUserComponent } from './admin-new-user/admin-new-user.component
     HomeComponent,
     ContactComponent,
     LoginComponent,
-    AdminHeaderComponent,
-    AdminUsersTableComponent,
-    AdminUsersTableNormalComponent,
-    AdminNewUserComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,9 @@ import {CatalogComponent} from '../catalog/catalog.component';
 import {ContactComponent} from '../contact/contact.component';
 import {AboutComponent} from '../about/about.component';
 import {ItemDetailComponent} from '../item-detail/item-detail.component';
-import {AdminUsersTableNormalComponent} from '../admin-users-table-normal/admin-users-table-normal.component';
-import {AdminNewUserComponent} from "../admin-new-user/admin-new-user.component";
+import {UsersComponent} from "../admin/users/users.component";
+import {UserComponent} from "../admin/user/user.component";
+
 
 
 export const routes: Routes = [
@@ -14,7 +15,7 @@ export const routes: Routes = [
   {path: 'itemdetail/:id', component: ItemDetailComponent},
   {path: 'contactus', component: ContactComponent},
   {path: 'aboutus', component: AboutComponent},
-  {path: 'users', component: AdminUsersTableNormalComponent},
-  {path: 'new/user', component: AdminNewUserComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'user', component: UserComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];

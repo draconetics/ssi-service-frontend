@@ -10,6 +10,8 @@ import {of} from "rxjs/internal/observable/of";
 
 
 
+
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -55,11 +57,26 @@ export class EmployeeService {
   addEmployee(employee: Employee): Observable<Employee> {
     console.log("esto le estoy enviando ");
     console.log(employee);
-    return this.http.post<Employee>(baseURL+"employees", employee, httpOptions).pipe(
-      tap((employee: Employee) => console.log(`Added employee with id ${employee.id}!`)),
-      catchError(this.handleError<Employee>('addEmployee'))
-    );
+    // return this.http.post<Employee>(baseURL+"employees", employee, httpOptions).pipe(
+    //   tap((employee: Employee) => console.log(`Added employee with id ${employee.id}!`)),
+    //   catchError(this.handleError<Employee>('addEmployee'))
+    // );
+    return this.http.post<Employee>("http://192.168.1.9:8080/employees", JSON.stringify(employee),{headers: {'Content-Type': 'application/json'}});
   }
+
+
+
+  // addBookWithObservable(emp:Employee): Observable<Employee> {
+  //   let headers = new Headers({ 'Content-Type': 'application/json' });
+  //   let options = new RequestOptions({ headers: headers });
+  //   return this.http.post(baseURL, emp, options)
+  //     .map(this.extractData)
+  //     .catch(this.handleErrorObservable);
+  // }
+
+
+
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
