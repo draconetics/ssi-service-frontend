@@ -11,8 +11,11 @@
 
     <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" id="form">
       <p>
+
+
         <mat-form-field class="half-width"
                         color="{{(feedbackForm.get('firstName').hasError('required') && feedbackForm.get('firstName').touched) ? 'warn' : 'primary'}}">
+
           <input matInput formControlName="firstName" placeholder="First Name" type="text" required>
           <mat-hint>
                 <span
@@ -36,8 +39,11 @@
 
 
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">
-        Submit
+        Save
       </button>
+      <a routerLink="/users" mat-button class="background-secundary text-floral-gray" >
+        Cancel
+      </a>
     </form>
   </div>
 
