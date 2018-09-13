@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from "../../shared/employee";
 import {EmployeeService} from "../../services/employee.service";
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {DeleteUserComponent} from '../../dialog/delete-user/delete-user.component';
 
 export interface PeriodicElement {
   name: string;
@@ -20,19 +22,12 @@ export interface PeriodicElement {
 export class UsersComponent implements OnInit {
 
   employees: Employee[];
-  // employees = [{
-  //     id:2,
-  //     name:"mario flores",
-  //     firstName:"mario",
-  //     lastName:"flores",
-  //     image:null
-  // }];
 
 
   displayedColumns: string[] = ['id', 'name', 'firstName', 'lastName','image','operations'];
 
 
-  constructor(private employeeService: EmployeeService, private router:Router) {
+  constructor(private employeeService: EmployeeService, private router:Router, public dialog:MatDialog) {
   }
 
   ngOnInit() {
@@ -45,19 +40,29 @@ export class UsersComponent implements OnInit {
     //console.log(JSON.stringify(this.employees));
   }
 
-  deleteUser(employee:Employee){
-    this.employeeService.deleteEmployee(employee).subscribe((data)=>{
-      //this.router.navigate(['/users']);
-      var rows = document.getElementById("item"+employee.id);
-      rows.parentNode.removeChild(rows);
-    },(error)=>{
-      console.log(error);
-    });
-  }
+  // deleteUser(employee:Employee){
+  //   //this.dialog.open();
+  //
+  //
+  //
+  //   this.employeeService.deleteEmployee(employee).subscribe((data)=>{
+  //     //this.router.navigate(['/users']);
+  //     var rows = document.getElementById("item"+employee.id);
+  //     rows.parentNode.removeChild(rows);
+  //   },(error)=>{
+  //     console.log(error);
+  //   });
+  // }
 
   updateUser(employee){
     this.employeeService.setter(employee);
     this.router.navigate(['/user']);
   }
+
+  openDeleteDialog(employee:Employee) {
+    //this.dialog.open(DeleteUserComponent, {width: '500px', height: '450px'});
+    this.dialog.open(DeleteUserComponent, {data:{employee}});
+  }
+
 
 }

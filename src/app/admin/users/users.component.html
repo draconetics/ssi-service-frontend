@@ -29,8 +29,9 @@
       </mat-card>
     </td>
     <td>
-      <button mat-button class="background-primary text-floral-white"  (click)="updateUser(emp)">Edit</button><br>
-      <button mat-button class="background-primary text-floral-white"  (click)="deleteUser(emp)">Delete</button><br>
+      <button mat-button class="background-accent text-floral-white"  (click)="(updateUser(emp))">Edit</button><br>
+      <button mat-raised-button  (click)="openDeleteDialog(emp)">Delete</button><br>
+
     </td>
 
   </tr>

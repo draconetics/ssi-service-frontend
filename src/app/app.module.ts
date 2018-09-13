@@ -46,12 +46,13 @@ import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './dialog/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {baseURL} from './shared/baseurl';
 import { UsersComponent } from './admin/users/users.component';
 import { UserComponent } from './admin/user/user.component';
+import { DeleteUserComponent } from './dialog/delete-user/delete-user.component';
 
 
 
@@ -67,7 +68,8 @@ import { UserComponent } from './admin/user/user.component';
     ContactComponent,
     LoginComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { UserComponent } from './admin/user/user.component';
     {provide: 'BaseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [LoginComponent,DeleteUserComponent]
 })
 export class AppModule {
 }

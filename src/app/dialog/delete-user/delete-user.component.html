@@ -1,0 +1,25 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    Delete Employee
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="end">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+
+
+  <mat-dialog-content>
+    <p>
+        Do you want to delete this Item {{data.employee.id}}?
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+      <button mat-raised-button  (click)="deleteUser(data.employee)">Delete</button>
+      <button mat-button mat-dialog-close>Cancel</button>
+
+
+  </mat-dialog-actions>
+
