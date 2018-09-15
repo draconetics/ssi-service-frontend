@@ -53,6 +53,7 @@ import {baseURL} from './shared/baseurl';
 import { UsersComponent } from './admin/users/users.component';
 import { UserComponent } from './admin/user/user.component';
 import { DeleteUserComponent } from './dialog/delete-user/delete-user.component';
+import { UploadImageUserComponent } from './dialog/upload-image-user/upload-image-user.component';
 
 
 
@@ -69,7 +70,8 @@ import { DeleteUserComponent } from './dialog/delete-user/delete-user.component'
     LoginComponent,
     UsersComponent,
     UserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    UploadImageUserComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,7 @@ import { DeleteUserComponent } from './dialog/delete-user/delete-user.component'
     {provide: 'BaseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent,DeleteUserComponent]
+  entryComponents: [LoginComponent,DeleteUserComponent,UploadImageUserComponent]
 })
 export class AppModule {
 }

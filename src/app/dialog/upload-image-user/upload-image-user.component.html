@@ -1,0 +1,26 @@
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="avatar">Avatar</label>
+
+    <mat-card id="imageContainer" align="center">
+      <div *ngIf="newUser.image; else imageDefault">
+        <img mat-card-sm-image data-src="data:image/png;base64,{{newUser.image}}" alt="{{newUser.name}}">
+
+      </div>
+      <ng-template #imageDefault>
+        <img mat-card-sm-image alt="Default User" src="../../assets/images/default-user.png"  >
+      </ng-template>
+
+
+
+    </mat-card>
+
+    <mat-card align="center">
+        <img mat-card-sm-image id="prevImage"  [src]="imageSrc"  alt="" />
+    </mat-card>
+    <input type="file" id="avatar" (change)="onFileChanged($event)" #fileInput>
+
+  </div>
+  <button type="submit" [disabled]="submit" class="btn btn-success">Save Image <i class="fa fa-spinner fa-spin fa-fw" ></i></button>
+</form>

@@ -19,6 +19,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+const httpImageOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -55,7 +58,7 @@ export class EmployeeService {
   }
 
   getEmployee(id: number): Observable<Employee> {
-    return <Observable<Employee>> this.http.get(baseURL + 'items/' + id);
+    return <Observable<Employee>> this.http.get(baseURL + 'employees/' + id);
   }
 
   getFeaturedEmployee(): Observable<Employee> {
@@ -76,6 +79,16 @@ export class EmployeeService {
     return this.http.post<Employee>(baseURL+"employees", employee, httpOptions).pipe(
       tap((user: Employee) => console.log(`Added employee with id ${user.id}!`)),
       catchError(this.handleError<Employee>('addEmployee'))
+    );
+    // return this.http.post<Employee>("http://localhost:8080/employees", JSON.stringify(employee),{headers: {'Content-Type': 'application/json'}});
+  }
+
+  uploadImage(employee: Employee,uploadData): Observable<Employee> {
+    console.log("esto le estoy enviando ");
+    console.log(employee);
+    return this.http.post<Employee>(baseURL+"employees/"+employee.id+"/image", uploadData).pipe(
+      tap((user: Employee) => console.log(`Added employee with id ${user.id}!`)),
+      catchError(this.handleError<Employee>('uploadImage'))
     );
     // return this.http.post<Employee>("http://localhost:8080/employees", JSON.stringify(employee),{headers: {'Content-Type': 'application/json'}});
   }

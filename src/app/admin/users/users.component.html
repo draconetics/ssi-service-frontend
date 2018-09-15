@@ -23,10 +23,26 @@
     <td>{{emp.firstName}} {{emp.lastName}}</td>
     <td>{{emp.firstName}}</td>
     <td>{{emp.lastName}}</td>
-    <td>
+    <td align="center">
+
+      <!--<div *ngIf="isValid; then thenBlock; else elseBlock"> </div>-->
+      <!--<ng-template #thenBlock>-->
+        <!--<div>   <b>Data is valid.</b>   </div>-->
+      <!--</ng-template>-->
+      <!--<ng-template #elseBlock>-->
+        <!--<div>   <b>Data is invalid.</b>   </div>-->
+      <!--</ng-template>-->
+      <!---->
+
       <mat-card>
-        <img mat-card-sm-image data-src="data:image/png;base64,{{emp.image}}" alt="{{emp.name}}">
+          <div *ngIf="emp.image; else imageDefault">
+            <img mat-card-sm-image data-src="data:image/png;base64,{{emp.image}}" alt="{{emp.name}}" id="image{{emp.id}}">
+          </div>
+          <ng-template #imageDefault>
+              <img mat-card-sm-image alt="Default User" src="../../assets/images/default-user.png"  id="image{{emp.id}}">
+          </ng-template>
       </mat-card>
+      <button mat-raised-button  (click)="openChangeImage(emp)">Change Image</button><br>
     </td>
     <td>
       <button mat-button class="background-accent text-floral-white"  (click)="(updateUser(emp))">Edit</button><br>

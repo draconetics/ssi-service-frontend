@@ -24,9 +24,6 @@ export class UserComponent implements OnInit {
       this.createFormByUser(es.employeeSelected);
     }
 
-
-
-
   }
 
   ngOnInit() {
