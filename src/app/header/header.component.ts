@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {LoginComponent} from '../dialog/login/login.component';
 
 @Component({
@@ -17,7 +17,22 @@ export class HeaderComponent implements OnInit {
   }
 
   openLoginForm() {
-    this.dialog.open(LoginComponent, {width: '500px', height: '450px'});
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '400px';
+    dialogConfig.height = '450px';
+
+    // dialogConfig.position = {
+    //   'top': '0px',
+    //   'left': '0px'
+    // };
+
+
+    this.dialog.open(LoginComponent, dialogConfig);
+
   }
 
 }

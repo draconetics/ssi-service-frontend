@@ -1,14 +1,18 @@
+
 <mat-toolbar fxLayout="row" mat-dialog-title color="primary">
   <div fxFlex>
     Login
   </div>
-  <span fxFlex class="flex-spacer"></span>
+<!--  <span fxFlex class="flex-spacer"></span>
   <div fxFlex align="end">
     <button mat-button mat-dialog-close>&times;</button>
-  </div>
+  </div>-->
 </mat-toolbar>
 
+<!--<h2 mat-dialog-title>LOGIN</h2>-->
+<!--<mat-divider></mat-divider>-->
 <p>{{ user | json }}</p>
+
 
 <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
 
@@ -22,8 +26,9 @@
               <span [hidden]="!username.errors?.required">username is required</span>
          </span>
         </mat-hint>
-
       </mat-form-field>
+    </p>
+    <p>
       <mat-form-field [color]="password.invalid && !password.pristine ? 'warn' : 'primary'">
         <input matInput placeholder="Password" type="password"
                [(ngModel)]="user.password" name="password" #password="ngModel" required>
@@ -33,6 +38,8 @@
          </span>
         </mat-hint>
       </mat-form-field>
+    </p>
+    <p>
       <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox>
     </p>
   </mat-dialog-content>
@@ -44,3 +51,4 @@
     </button>
   </mat-dialog-actions>
 </form>
+

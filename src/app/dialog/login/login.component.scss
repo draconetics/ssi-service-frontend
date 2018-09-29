@@ -1,0 +1,31 @@
+//*{
+//  margin:0;
+//  padding:0;
+//  box-sizing: border-box;
+//}
+//
+//mat-toolbar {
+//    margin-top: 0px;
+//}
+
+h2{
+  //font-style: oblique;
+  font-weight: bold;
+}
+
+//mat-dialog-content{
+//  text-align: center;
+//  height: auto;
+//}
+mat-form-field{
+  width: 100%;
+}
+mat-dialog-actions{
+  text-align: left;
+}
+
+mat-checkbox{
+  position:relative;
+  left:0px;
+  margin-left: 0px;
+}
